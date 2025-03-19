@@ -27,31 +27,6 @@ public class CreateContact {
 		driver.findElement(By.xpath("//input[@name='property(First Name)']")).sendKeys("Praveen");
 		driver.findElement(By.xpath("//input[@name='property(Last Name)']")).sendKeys("Ghali");
 		
-		/*driver.findElement(By.xpath("//img[@title='Account Name Lookup']")).click();
-		 Set<String> allwh2 = driver.getWindowHandles();
-		 for( String wh:allwh2) {
-			 driver.switchTo().window(wh);
-			 String title = driver.getTitle();
-			 System.out.println(title);
-			 if (title.equals("Zoho CRM - Account Name Lookup")) {
-				driver.switchTo().window(wh);
-				driver.findElement(By.name("fldValue")).sendKeys("Veera");
-				driver.findElement(By.xpath("//input[@value='Go']")).click();
-				driver.findElement(By.xpath("//a[contains(text(),'Veera Vahana Pvt.Ltd')]")).click();
-				//driver.close();
-			}
-		}
-		 
-		 for( String wh:allwh2) {
-			 driver.switchTo().window(wh);
-			 String title = driver.getTitle();
-			 System.out.println(title);
-			 if (title.equals("Zoho CRM - Create Contact")) {
-				driver.switchTo().window(wh);
-				title=driver.getTitle();
-				System.out.println(title);
-			}
-		}*/
 		 driver.findElement(By.xpath("//input[@name='property(Account Name)']")).sendKeys("Veera vahana Udyog.Pvt.Ltd");
 		 driver.findElement(By.xpath("//input[@name='property(Email)']")).sendKeys("pmg9@gmail.com");
 		 driver.findElement(By.xpath("//input[@name='property(Phone)']")).sendKeys("9637412585");

@@ -1,7 +1,5 @@
 package com.lrm.testScript;
-import java.util.Set;
 
-import org.jspecify.annotations.Nullable;
 //WAS TO CREATE NEW LEAD AND VALIDATE IT IS CREATED SUCCESSFULLY OR NOT:
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -46,25 +44,6 @@ public class CreateLead {
 		WebElement ratingDD = driver.findElement(By.xpath("//select[@name='property(Rating)']"));
 		Select s5=new Select(ratingDD);
 		s5.selectByIndex(2);
-		
-		/*driver.findElement(By.xpath("//img[@title='Campaign Name Lookup']")).click();
-		Set<String> allwh1 = driver.getWindowHandles();
-		 for( String wh:allwh1) {
-			 driver.switchTo().window(wh);
-			 String title = driver.getTitle();
-			 System.out.println(title);
-			 if (title.equals("Zoho CRM - Campaign Name Lookup")) {
-				driver.switchTo().window(wh);
-				driver.findElement(By.xpath("//tbody/tr[2]/td/table/tbody/tr[1]/td/table/tbody/tr[2]/td[1]/a")).click();
-				//driver.close();
-			}
-			 if (title.equals("Zoho CRM - Create Lead")) {
-					driver.switchTo().window(wh);
-					String title1 = driver.getTitle();
-					 System.out.println(title1);
-			}
-		}*/
-		
 		driver.findElement(By.xpath("//input[@name='property(Street)']")).sendKeys("Basavanagudi");
 		driver.findElement(By.xpath("//input[@name='property(City)']")).sendKeys("Bengalore");
 		driver.findElement(By.xpath("//input[@name='property(State)']")).sendKeys("Karnataka");

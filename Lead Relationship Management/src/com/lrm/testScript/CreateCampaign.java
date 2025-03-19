@@ -19,46 +19,37 @@ public class CreateCampaign {
 		driver.findElement(By.xpath("//input[@id='userName']")).sendKeys("rashmi@dell.com");
 		driver.findElement(By.xpath("//input[@id='passWord']")).sendKeys("123456");
 		driver.findElement(By.xpath("//input[@title='Sign In']")).click();
-		driver.findElement(By.xpath("//a[text()='Campaigns']")).click();
+		driver.findElement(By.xpath("//a[text()='Campaigns']")).click();//HomePage
+		
 		driver.findElement(By.xpath("//input[@value='New Campaign']")).click();
 		driver.findElement(By.xpath("//input[@name='property(Campaign Name)']")).sendKeys("Vivo Mobile Info");
 		WebElement cType = driver.findElement(By.xpath("//select[@name='property(Type)']"));
 		Select s=new Select(cType);
 		s.selectByIndex(7);
-		//driver.findElement(By.xpath("//input[@name='property(Start Date)']")).sendKeys("02/24/2025");
+		String pWh = driver.getWindowHandle();
 		driver.findElement(By.xpath("(//img[@title='Calendar'])[1]")).click();
 		Set<String> allwh1 = driver.getWindowHandles();
 		 for( String wh:allwh1) {
 			 driver.switchTo().window(wh);
 			 String title = driver.getTitle();
-			 //System.out.println(title);
 			 if (title.equals("Start Date")) {
 				driver.switchTo().window(wh);
 				driver.findElement(By.xpath("(//tr[@align='center'])[5]/td[2]")).click();
-				//driver.quit();
 			}
-			if (title.equals("Zoho CRM - Create Campaign")) {
-				driver.switchTo().window(wh);
-				String title1 = driver.getTitle();
-				System.out.println(title1);
-			}
+			
 		}
-		@Nullable
-		String title1 = driver.getTitle();
-		System.out.println(title1);
-		 //driver.findElement(By.xpath("//input[@name='property(End Date)']")).sendKeys("02/25/2025");
+		 driver.switchTo().window(pWh);
 		 driver.findElement(By.xpath("(//img[@title='Calendar'])[2]")).click();
 		 Set<String> allwh2 = driver.getWindowHandles();
 		 for( String wh:allwh2) {
 			 driver.switchTo().window(wh);
 			 String title = driver.getTitle();
-			 System.out.println(title);
 			 if (title.equals("End Date")) {
 				driver.switchTo().window(wh);
 				driver.findElement(By.xpath("(//tr[@align='center'])[5]/td[4]")).click();
-				//driver.quit();			
 				}
 		}
+		 driver.switchTo().window(pWh);
 		 WebElement cStatus = driver.findElement(By.xpath("//select[@name='property(Status)']"));
 		 Select s1=new Select(cStatus);
 		 s1.selectByIndex(3);
@@ -71,8 +62,8 @@ public class CreateCampaign {
 		 driver.findElement(By.xpath("(//input[@type='submit'])[2]")).submit();
 		 String campaign = driver.findElement(By.xpath("//td[@id='Campaign Name']/..//span[@id='value_Campaign Name']")).getText();
 		 System.out.println(campaign+" created successfully");
-		 driver.findElement(By.linkText("Logout [rashmi@dell.com]")).click();
-		// driver.close();
+		// driver.findElement(By.linkText("Logout [rashmi@dell.com]")).click();
+		 //driver.quit();
 	}
 
 }
